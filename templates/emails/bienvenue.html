@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue</title>
+    <style>
+        body { background-color: #f4f4f4; font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; padding: 24px; text-align: center; }
+        h1 { color: #1e88e5; font-size: 22px; margin-bottom: 16px; }
+        p { color: #333333; line-height: 1.6; font-size: 14px; }
+        .btn { display: inline-block; margin-top: 16px; padding: 10px 20px; background: #1e88e5; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 14px; }
+        .footer { margin-top: 24px; font-size: 12px; color: #777777; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Bienvenue {{ prenom }} 👋</h1>
+    <p>
+        Merci d'avoir créé un compte sur mon portfolio. Tu peux maintenant te connecter,
+        consulter mes projets et suivre les mises à jour.
+    </p>
+    <a href="http://localhost:4200/login" class="btn">Se connecter</a>
+    <p class="footer">
+        Si tu n'es pas à l'origine de cette création de compte, tu peux ignorer cet email.
+    </p>
+</div>
+</body>
+</html>
+
