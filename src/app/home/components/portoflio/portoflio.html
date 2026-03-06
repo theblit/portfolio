@@ -16,18 +16,18 @@
                     <div class="row portfolio-items">
                         <div class="col-xl-4 col-lg-4 col-md-6 mb-2 mt-4" *ngFor="let project of projects">
                             <div class="portfolio-item">
-                                <a [href]="project.link" class="portfolio-single portfolio-image">
+                                <a [href]="project.lien_demo || project.lien_github" class="portfolio-single portfolio-image">
                                     <div class="item-box">
                                         <div class="item-image">
-                                            <img [src]="project.image" width="510" height="600" class="d-block img-fluid mx-auto" alt="">
+                                            <img [src]="'http://localhost:8000' + project.image" width="510" height="600" class="d-block img-fluid mx-auto" alt="">
                                         </div>
                                         <div class="item-details d-flex align-items-center">
                                             <div class="item-details-ins text-center w-100">
                                                 <div class="mb-2">
                                                     <span class="mbri-photos"></span>
                                                 </div>
-                                                <h3>{{ project.title }}</h3>
-                                                <p>{{ project.category }}</p>
+                                                <h3>{{ project.titre }}</h3>
+                                                <p>{{ project.technologies }}</p>
                                             </div>
                                         </div>
                                     </div>

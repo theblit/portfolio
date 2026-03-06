@@ -1,21 +1,23 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgForOf, DatePipe } from '@angular/common';
-import { BlogPost, ContentService } from '../../../shared/services/content.service';
+import { RouterLink } from '@angular/router';
+import { PortfolioService } from '../../../core/services/portfolio.services';
+import { ApiPaginatedResponse, Article } from '../../../core/models/portfolio.models';
 
 @Component({
   selector: 'app-blog',
-  imports: [NgForOf, DatePipe],
+  imports: [NgForOf, DatePipe, RouterLink],
   templateUrl: './blog.html',
   styleUrl: './blog.css',
 })
 export class Blog implements OnInit {
-  posts: BlogPost[] = [];
+  posts: Article[] = [];
 
-  private readonly contentService = inject(ContentService);
+  private readonly portfolioService = inject(PortfolioService);
 
   ngOnInit(): void {
-    this.contentService.getBlogPosts().subscribe((posts) => {
-      this.posts = posts;
+    this.portfolioService.getArticles().subscribe((res: ApiPaginatedResponse<Article>) => {
+      this.posts = res.results;
     });
   }
 }

@@ -1,4 +1,5 @@
-import { Component, effect, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, PLATFORM_ID, effect, inject, signal } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,13 @@ import { Component, effect, signal } from '@angular/core';
 })
 export class Header {
   isDarkTheme = signal(false);
+  private readonly platformId = inject(PLATFORM_ID);
 
   constructor() {
     effect(() => {
+      if (!isPlatformBrowser(this.platformId)) {
+        return;
+      }
       const dark = this.isDarkTheme();
       const themeLink = document.getElementById('optional-theme') as HTMLLinkElement | null;
       if (themeLink) {

@@ -3,6 +3,7 @@ from datetime import timedelta
 from pathlib import Path
 
 import environ
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -16,7 +17,7 @@ SECRET_KEY = env("SECRET_KEY", default="change-moi-avec-une-vraie-cle-secrete")
 
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1", ".railway.app"])
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -66,7 +68,11 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
-    "default": {
+    "default": dj_database_url.config(
+        default=env("DATABASE_URL", default=None),
+        conn_max_age=600,
+    )
+    or {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": env("DB_NAME"),
         "USER": env("DB_USER"),
@@ -133,7 +139,10 @@ SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("Bearer",),
 }
 
-CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=["http://localhost:4200"])
+CORS_ALLOWED_ORIGINS = env.list(
+    "CORS_ALLOWED_ORIGINS",
+    default=["http://localhost:4200"],
+)
 CORS_ALLOW_CREDENTIALS = True
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -144,4 +153,6 @@ EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="")
 DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="Portfolio <noreply@example.com>")
 EMAIL_DESTINATAIRE = env("EMAIL_DESTINATAIRE", default=EMAIL_HOST_USER)
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 

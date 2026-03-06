@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgForOf } from '@angular/common';
-import { ContentService, Project } from '../../../shared/services/content.service';
+import { PortfolioService } from '../../../core/services/portfolio.services';
+import { ApiPaginatedResponse, Projet } from '../../../core/models/portfolio.models';
 
 @Component({
   selector: 'app-portoflio',
@@ -9,13 +10,13 @@ import { ContentService, Project } from '../../../shared/services/content.servic
   styleUrl: './portoflio.css',
 })
 export class Portoflio implements OnInit {
-  projects: Project[] = [];
+  projects: Projet[] = [];
 
-  private readonly contentService = inject(ContentService);
+  private readonly portfolioService = inject(PortfolioService);
 
   ngOnInit(): void {
-    this.contentService.getProjects().subscribe((projects) => {
-      this.projects = projects;
+    this.portfolioService.getProjets().subscribe((res: ApiPaginatedResponse<Projet>) => {
+      this.projects = res.results;
     });
   }
 }
