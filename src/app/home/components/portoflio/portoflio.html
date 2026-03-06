@@ -1,0 +1,47 @@
+ <section class="portfolio" id="portfolio">
+            <div class="container d-flex flex-column justify-content-between h-100 ">
+
+                <div class="section-title flex-grow-1">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h2 data-aos="heading-show" class="rect_heading">My Projects</h2>
+                                <p class="m-0">There are many variations of passages of Lorem Ipsum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-content flex-grow-1">
+                    <div class="row portfolio-items">
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-2 mt-4" *ngFor="let project of projects">
+                            <div class="portfolio-item">
+                                <a [href]="project.link" class="portfolio-single portfolio-image">
+                                    <div class="item-box">
+                                        <div class="item-image">
+                                            <img [src]="project.image" width="510" height="600" class="d-block img-fluid mx-auto" alt="">
+                                        </div>
+                                        <div class="item-details d-flex align-items-center">
+                                            <div class="item-details-ins text-center w-100">
+                                                <div class="mb-2">
+                                                    <span class="mbri-photos"></span>
+                                                </div>
+                                                <h3>{{ project.title }}</h3>
+                                                <p>{{ project.category }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 text-center mt-5">
+                            <a href="#" class="btn btn-outline-primary"><span><i class="fab fa-dribbble"></i></span> See More</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>

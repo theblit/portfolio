@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Network Monitoring Dashboard",
+    "category": "Networking",
+    "image": "assets/images/background_pattern.svg",
+    "type": "image",
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "title": "Secure Web Application",
+    "category": "Cyber Security",
+    "image": "assets/images/background_pattern_light.svg",
+    "type": "image",
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "title": "Wireless Infrastructure Design",
+    "category": "Wireless",
+    "image": "assets/images/background_pattern.svg",
+    "type": "image",
+    "link": "#"
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Cloud computing : tendances et marché",
+    "author": "IDC (International Data Corporation)",
+    "date": "2026-02-01",
+    "image": "assets/images/cloud-computing.png",
+    "link": "https://hk.investing.com/news/stock-market-news/article-1309682",
+    "source": "IDC - Février 2026"
+  },
+  {
+    "id": 2,
+    "title": "Transition vers l’IPv6 : un tournant décisif",
+    "author": "SIDN",
+    "date": "2026-02-01",
+    "image": "assets/images/ipv6.png",
+    "link": "https://www.sidn.nl/en/news-and-blogs/tipping-point-reached-transition-to-ipv6-enters-a-new-phase",
+    "source": "SIDN (opérateur néerlandais) - Février 2026"
+  },
+  {
+    "id": 3,
+    "title": "Top 5 des tendances cybersécurité 2026",
+    "author": "INE Security",
+    "date": "2026-01-15",
+    "image": "assets/images/cybersecurity.png",
+    "link": "https://ine.com/newsroom/ine-releases-top-5-cybersecurity-trends-of-2026",
+    "source": "INE Security - Janvier 2026"
+  }
+]
